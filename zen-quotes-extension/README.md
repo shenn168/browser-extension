@@ -15,3 +15,17 @@ A beautiful Microsoft Edge browser extension that delivers random inspirational 
 - **Fast**: Instant quote display with elegant loading states
 
 ## 📸 Screenshots
+
+
+## 🚀 Installation
+
+### Prerequisites
+
+- Microsoft Edge browser (Chromium-based)
+- Basic familiarity with browser extensions
+
+### Step-by-Step Guide
+
+1. **Download the Extension**
+   ```bash
+   git clone https://github.com/yourusername/zen-quotes-extension.git
