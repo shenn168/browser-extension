@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Zen Quotes",
+  "version": "1.0.0",
+  "description": "Get inspired with random zen quotes every time you click!",
+  "permissions": [],
+  "host_permissions": [
+    "https://zenquotes.io/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Zen Quotes - Click for Inspiration"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

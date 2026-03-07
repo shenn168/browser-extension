@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zen Quotes</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <span class="lotus">🪷</span>
+      <h1>Zen Quotes</h1>
+    </div>
+    
+    <div class="quote-container">
+      <div class="quote-mark">"</div>
+      <p id="quote-text" class="quote-text">Click the button to receive wisdom...</p>
+      <p id="quote-author" class="quote-author"></p>
+    </div>
+    
+    <button id="new-quote-btn" class="quote-btn">
+      <span class="btn-icon">✨</span>
+      New Quote
+    </button>
+    
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <p>Finding wisdom...</p>
+    </div>
+    
+    <div id="error" class="error hidden">
+      <p>Unable to fetch quote. Please try again.</p>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
