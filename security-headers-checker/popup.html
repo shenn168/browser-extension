@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Security Headers Checker</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🛡️ Security Headers Checker</h1>
+    
+    <div class="url-box">
+      <small>Active Tab:</small>
+      <div id="activeUrl">Loading...</div>
+      <div id="activeOrigin"></div>
+    </div>
+    
+    <div class="mode-box">
+      <strong>Scan Mode:</strong>
+      <label><input type="radio" name="scanMode" value="A" checked> Mode A (Observe)</label>
+      <label><input type="radio" name="scanMode" value="B"> Mode B (Fetch)</label>
+      <label><input type="radio" name="scanMode" value="AB"> Compare A+B</label>
+      <div id="modeWarning" class="warning hidden">⚠️ Fetch may differ from page due to CORS/caching.</div>
+    </div>
+    
+    <div class="btn-row">
+      <button id="scanBtn" class="btn-primary">🔍 Scan</button>
+      <button id="rescanBtn" class="btn-secondary hidden">🔄 Rescan</button>
+      <button id="copyBtn" class="btn-secondary hidden">📋 Copy</button>
+      <button id="reloadTabBtn" class="btn-secondary hidden">↻ Reload Tab</button>
+    </div>
+    
+    <div id="loadingSection" class="hidden">
+      <div class="spinner"></div> Scanning...
+    </div>
+    
+    <div id="errorSection" class="error hidden">
+      ❌ <span id="errorMessage"></span>
+    </div>
+    
+    <div id="resultsSection" class="hidden">
+      <div id="scanInfo" class="scan-info"></div>
+      <div id="comparisonNote" class="info hidden">📊 Comparing Mode A vs Mode B results</div>
+      
+      <table class="results-table">
+        <thead>
+          <tr><th>Header</th><th>Status</th><th>Value</th><th>Details</th></tr>
+        </thead>
+        <tbody id="resultsBody"></tbody>
+      </table>
+      
+      <div id="summaryStats" class="summary"></div>
+    </div>
+    
+    <footer>🔒 Runs locally. No data sent externally.</footer>
+  </div>
+  
+  <div id="copyToast" class="toast hidden">✓ Copied!</div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
