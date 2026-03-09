@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TARA Helper</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <header>
+      <h1>🛡️ TARA Helper</h1>
+      <p class="subtitle">ISO/SAE 21434 Threat Analysis</p>
+    </header>
+
+    <div class="stats-section">
+      <div class="stat-card">
+        <span class="stat-label">Analyses Used</span>
+        <span class="stat-value" id="analysisCount">0</span>
+        <span class="stat-limit" id="analysisLimit">/ 5</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Account</span>
+        <span class="stat-value" id="accountType">Free</span>
+      </div>
+    </div>
+
+    <div class="action-section">
+      <button id="analyzeBtn" class="primary-btn">
+        <span class="btn-icon">🔍</span>
+        Analyze Current Page
+      </button>
+
+      <button id="openSidebarBtn" class="secondary-btn">
+        <span class="btn-icon">📊</span>
+        Open Analysis Panel
+      </button>
+    </div>
+
+    <!-- Add after the existing buttons -->
+<div class="quick-actions">
+  <h3>Quick Actions</h3>
+  <button id="clearHighlightsBtn" class="action-btn">
+    <span>🧹</span> Clear Highlights
+  </button>
+  <button id="viewHistoryBtn" class="action-btn">
+    <span>📋</span> View History
+  </button>
+  <button id="settingsBtn" class="action-btn">
+    <span>⚙️</span> Settings
+  </button>
+  <!-- ADD THIS TEST BUTTON -->
+  <button id="testAnalysisBtn" class="action-btn" style="background: #ffc107;">
+    <span>🧪</span> Test Analysis (Debug)
+  </button>
+</div>
+
+    <div class="shortcuts-section">
+      <h3>Keyboard Shortcuts</h3>
+      <div class="shortcut">
+        <span class="key">Alt + T</span>
+        <span>Analyze page</span>
+      </div>
+      <div class="shortcut">
+        <span class="key">Alt + C</span>
+        <span>Clear highlights</span>
+      </div>
+    </div>
+
+    <footer>
+      <p>Version 1.0.0 | <a href="#" id="upgradeLink">Upgrade to Premium</a></p>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

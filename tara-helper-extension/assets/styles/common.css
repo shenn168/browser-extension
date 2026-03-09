@@ -1,0 +1,70 @@
+/* Common styles for content script highlighting */
+
+.tara-highlight {
+  transition: background-color 0.3s ease;
+  border-radius: 2px;
+  padding: 2px 4px;
+  margin: 0 1px;
+}
+
+.tara-highlight:hover {
+  filter: brightness(0.9);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.tara-asset {
+  background-color: #fff3cd !important;
+  border-bottom: 2px solid #ffc107;
+}
+
+.tara-threat {
+  background-color: #f8d7da !important;
+  border-bottom: 2px solid #dc3545;
+}
+
+.tara-control {
+  background-color: #d4edda !important;
+  border-bottom: 2px solid #28a745;
+}
+
+.tara-attack-path {
+  background-color: #d1ecf1 !important;
+  border-bottom: 2px solid #17a2b8;
+}
+
+/* Tooltip for highlights */
+.tara-highlight::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 10000;
+}
+
+.tara-highlight:hover::after {
+  opacity: 1;
+}
+
+/* Analysis indicator animation */
+@keyframes tara-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.tara-analyzing {
+  animation: tara-pulse 1.5s ease-in-out infinite;
+}

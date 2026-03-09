@@ -1,0 +1,176 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2024-01-15",
+  "threatPatterns": [
+    {
+      "id": "THREAT-001",
+      "name": "Unauthorized ECU Access",
+      "strideCategory": "Elevation of Privilege",
+      "description": "Attacker gains unauthorized access to ECU through exploitation of authentication vulnerabilities",
+      "keywords": ["bypass authentication", "unauthorized access", "privilege escalation", "ecu access"],
+      "impactRatings": {
+        "safety": 4,
+        "financial": 3,
+        "operational": 4,
+        "privacy": 2
+      },
+      "commonTargets": ["HW-ECU-001", "HW-GW-001", "HW-TCU-001"],
+      "attackVectors": ["Network", "Physical", "Supply Chain"],
+      "mitreTactics": ["Initial Access", "Privilege Escalation"],
+      "cveExamples": ["CVE-2020-12345", "CVE-2019-67890"]
+    },
+    {
+      "id": "THREAT-002",
+      "name": "CAN Bus Message Injection",
+      "strideCategory": "Tampering",
+      "description": "Injection of malicious CAN messages to manipulate vehicle behavior",
+      "keywords": ["can injection", "message spoofing", "bus tampering", "can attack"],
+      "impactRatings": {
+        "safety": 5,
+        "financial": 4,
+        "operational": 5,
+        "privacy": 1
+      },
+      "commonTargets": ["COM-CAN-001"],
+      "attackVectors": ["Network", "Physical"],
+      "mitreTactics": ["Execution", "Impact"],
+      "cveExamples": ["CVE-2017-12345"]
+    },
+    {
+      "id": "THREAT-003",
+      "name": "Man-in-the-Middle on OTA Updates",
+      "strideCategory": "Tampering",
+      "description": "Interception and modification of OTA update packages",
+      "keywords": ["mitm", "ota tampering", "update manipulation", "firmware tampering"],
+      "impactRatings": {
+        "safety": 5,
+        "financial": 4,
+        "operational": 5,
+        "privacy": 3
+      },
+      "commonTargets": ["EXT-OTA-001"],
+      "attackVectors": ["Network"],
+      "mitreTactics": ["Initial Access", "Execution"],
+      "cveExamples": ["CVE-2018-23456"]
+    },
+    {
+      "id": "THREAT-004",
+      "name": "Key Fob Relay Attack",
+      "strideCategory": "Spoofing",
+      "description": "Relay attack on keyless entry system to unlock and start vehicle",
+      "keywords": ["relay attack", "key fob", "keyless entry", "peps attack"],
+      "impactRatings": {
+        "safety": 2,
+        "financial": 5,
+        "operational": 3,
+        "privacy": 2
+      },
+      "commonTargets": ["FUNC-KEYLESS-001"],
+      "attackVectors": ["Wireless"],
+      "mitreTactics": ["Initial Access"],
+      "cveExamples": []
+    },
+    {
+      "id": "THREAT-005",
+      "name": "Remote Code Execution via Telematics",
+      "strideCategory": "Elevation of Privilege",
+      "description": "Remote exploitation of telematics vulnerabilities to execute arbitrary code",
+      "keywords": ["remote code execution", "rce", "telematics exploit", "remote attack"],
+      "impactRatings": {
+        "safety": 5,
+        "financial": 4,
+        "operational": 5,
+        "privacy": 4
+      },
+      "commonTargets": ["HW-TCU-001", "EXT-CELL-001"],
+      "attackVectors": ["Network"],
+      "mitreTactics": ["Initial Access", "Execution", "Persistence"],
+      "cveExamples": ["CVE-2015-34567", "CVE-2016-45678"]
+    },
+    {
+      "id": "THREAT-006",
+      "name": "Diagnostic Port Exploitation",
+      "strideCategory": "Elevation of Privilege",
+      "description": "Physical access to OBD-II port to inject malicious commands",
+      "keywords": ["obd exploit", "diagnostic attack", "physical access", "uds attack"],
+      "impactRatings": {
+        "safety": 4,
+        "financial": 3,
+        "operational": 4,
+        "privacy": 3
+      },
+      "commonTargets": ["INT-OBD-001"],
+      "attackVectors": ["Physical"],
+      "mitreTactics": ["Initial Access", "Execution"],
+      "cveExamples": []
+    },
+    {
+      "id": "THREAT-007",
+      "name": "Infotainment System Compromise",
+      "strideCategory": "Tampering",
+      "description": "Exploitation of infotainment vulnerabilities to pivot to critical systems",
+      "keywords": ["infotainment hack", "ivi exploit", "system compromise"],
+      "impactRatings": {
+        "safety": 3,
+        "financial": 3,
+        "operational": 4,
+        "privacy": 5
+      },
+      "commonTargets": ["HW-IVI-001"],
+      "attackVectors": ["Network", "USB", "Bluetooth"],
+      "mitreTactics": ["Initial Access", "Lateral Movement"],
+      "cveExamples": ["CVE-2019-12345"]
+    },
+    {
+      "id": "THREAT-008",
+      "name": "V2X Message Spoofing",
+      "strideCategory": "Spoofing",
+      "description": "Spoofing of V2X messages to create false traffic scenarios",
+      "keywords": ["v2x spoofing", "message forgery", "traffic manipulation"],
+      "impactRatings": {
+        "safety": 5,
+        "financial": 2,
+        "operational": 4,
+        "privacy": 1
+      },
+      "commonTargets": ["EXT-V2X-001"],
+      "attackVectors": ["Wireless"],
+      "mitreTactics": ["Impact"],
+      "cveExamples": []
+    },
+    {
+      "id": "THREAT-009",
+      "name": "Cryptographic Key Extraction",
+      "strideCategory": "Information Disclosure",
+      "description": "Extraction of cryptographic keys through side-channel or physical attacks",
+      "keywords": ["key extraction", "side channel", "hardware attack", "crypto attack"],
+      "impactRatings": {
+        "safety": 4,
+        "financial": 5,
+        "operational": 5,
+        "privacy": 5
+      },
+      "commonTargets": ["DATA-CRYPTO-001"],
+      "attackVectors": ["Physical", "Side-Channel"],
+      "mitreTactics": ["Credential Access"],
+      "cveExamples": []
+    },
+    {
+      "id": "THREAT-010",
+      "name": "Denial of Service on Gateway",
+      "strideCategory": "Denial of Service",
+      "description": "Flood attack on central gateway to disrupt vehicle communications",
+      "keywords": ["dos", "flood attack", "gateway dos", "communication disruption"],
+      "impactRatings": {
+        "safety": 4,
+        "financial": 2,
+        "operational": 5,
+        "privacy": 1
+      },
+      "commonTargets": ["HW-GW-001", "COM-CAN-001"],
+      "attackVectors": ["Network", "Physical"],
+      "mitreTactics": ["Impact"],
+      "cveExamples": []
+    }
+  ]
+}

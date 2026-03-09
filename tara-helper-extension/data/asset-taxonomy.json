@@ -1,0 +1,240 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2024-01-15",
+  "categories": {
+    "Hardware_Component": {
+      "name": "Hardware Component",
+      "description": "Physical electronic components in the vehicle",
+      "iso21434Reference": "Clause 5.4.1",
+      "assets": [
+        {
+          "id": "HW-ECU-001",
+          "name": "Engine Control Unit (ECU)",
+          "aliases": ["ECU", "Engine ECU", "Powertrain ECU"],
+          "criticality": "High",
+          "safetyRelevant": true,
+          "keywords": ["ecu", "engine control", "powertrain controller"]
+        },
+        {
+          "id": "HW-GW-001",
+          "name": "Central Gateway",
+          "aliases": ["Gateway", "CGW", "Central Gateway Module"],
+          "criticality": "Critical",
+          "safetyRelevant": true,
+          "keywords": ["gateway", "central gateway", "cgw", "network gateway"]
+        },
+        {
+          "id": "HW-TCU-001",
+          "name": "Telematics Control Unit",
+          "aliases": ["TCU", "Telematics Unit", "Connectivity Module"],
+          "criticality": "High",
+          "safetyRelevant": false,
+          "keywords": ["telematics", "tcu", "connectivity module", "cellular module"]
+        },
+        {
+          "id": "HW-IVI-001",
+          "name": "Infotainment Head Unit",
+          "aliases": ["Head Unit", "IVI", "Infotainment System"],
+          "criticality": "Medium",
+          "safetyRelevant": false,
+          "keywords": ["infotainment", "head unit", "ivi", "display system"]
+        },
+        {
+          "id": "HW-ADAS-001",
+          "name": "ADAS Controller",
+          "aliases": ["ADAS ECU", "Autonomous Driving Controller"],
+          "criticality": "Critical",
+          "safetyRelevant": true,
+          "keywords": ["adas", "autonomous", "self-driving", "driver assistance"]
+        },
+        {
+          "id": "HW-BCM-001",
+          "name": "Body Control Module",
+          "aliases": ["BCM", "Body Controller"],
+          "criticality": "Medium",
+          "safetyRelevant": false,
+          "keywords": ["body control", "bcm", "comfort controller"]
+        }
+      ]
+    },
+    "Communication_Channel": {
+      "name": "Communication Channel",
+      "description": "Data transmission channels within and outside the vehicle",
+      "iso21434Reference": "Clause 5.4.2",
+      "assets": [
+        {
+          "id": "COM-CAN-001",
+          "name": "CAN Bus",
+          "aliases": ["Controller Area Network", "CAN", "CAN Network"],
+          "criticality": "Critical",
+          "safetyRelevant": true,
+          "keywords": ["can bus", "controller area network", "can interface"]
+        },
+        {
+          "id": "COM-ETH-001",
+          "name": "Automotive Ethernet",
+          "aliases": ["Ethernet", "Vehicle Ethernet", "100BASE-T1"],
+          "criticality": "High",
+          "safetyRelevant": true,
+          "keywords": ["ethernet", "automotive ethernet", "100base-t1", "1000base-t1"]
+        },
+        {
+          "id": "COM-LIN-001",
+          "name": "LIN Bus",
+          "aliases": ["Local Interconnect Network", "LIN"],
+          "criticality": "Low",
+          "safetyRelevant": false,
+          "keywords": ["lin bus", "local interconnect", "lin network"]
+        },
+        {
+          "id": "COM-FLEX-001",
+          "name": "FlexRay",
+          "aliases": ["FlexRay Bus", "FlexRay Network"],
+          "criticality": "High",
+          "safetyRelevant": true,
+          "keywords": ["flexray", "flex ray", "flexray bus"]
+        }
+      ]
+    },
+    "External_Connectivity": {
+      "name": "External Connectivity",
+      "description": "Interfaces connecting vehicle to external networks",
+      "iso21434Reference": "Clause 5.4.3",
+      "assets": [
+        {
+          "id": "EXT-OTA-001",
+          "name": "Over-The-Air Update System",
+          "aliases": ["OTA", "Remote Update", "FOTA", "SOTA"],
+          "criticality": "Critical",
+          "safetyRelevant": true,
+          "keywords": ["ota", "over-the-air", "remote update", "fota", "sota"]
+        },
+        {
+          "id": "EXT-V2X-001",
+          "name": "Vehicle-to-Everything (V2X)",
+          "aliases": ["V2X", "V2V", "V2I", "C-V2X"],
+          "criticality": "High",
+          "safetyRelevant": true,
+          "keywords": ["v2x", "v2v", "v2i", "vehicle-to-everything", "c-v2x", "dsrc"]
+        },
+        {
+          "id": "EXT-CELL-001",
+          "name": "Cellular Connection",
+          "aliases": ["4G", "5G", "LTE", "Mobile Network"],
+          "criticality": "High",
+          "safetyRelevant": false,
+          "keywords": ["cellular", "4g", "5g", "lte", "mobile network"]
+        },
+        {
+          "id": "EXT-WIFI-001",
+          "name": "WiFi Hotspot",
+          "aliases": ["WiFi", "Wireless LAN", "WLAN"],
+          "criticality": "Medium",
+          "safetyRelevant": false,
+          "keywords": ["wifi", "wireless", "wlan", "hotspot"]
+        },
+        {
+          "id": "EXT-BT-001",
+          "name": "Bluetooth",
+          "aliases": ["BT", "Bluetooth LE", "BLE"],
+          "criticality": "Low",
+          "safetyRelevant": false,
+          "keywords": ["bluetooth", "ble", "bluetooth le", "wireless"]
+        }
+      ]
+    },
+    "Interface": {
+      "name": "Interface",
+      "description": "Physical and logical access points",
+      "iso21434Reference": "Clause 5.4.4",
+      "assets": [
+        {
+          "id": "INT-OBD-001",
+          "name": "OBD-II Diagnostic Port",
+          "aliases": ["OBD", "OBD-II", "Diagnostic Port"],
+          "criticality": "High",
+          "safetyRelevant": true,
+          "keywords": ["obd", "obd-ii", "diagnostic port", "diagnostics"]
+        },
+        {
+          "id": "INT-USB-001",
+          "name": "USB Port",
+          "aliases": ["USB", "USB Interface"],
+          "criticality": "Medium",
+          "safetyRelevant": false,
+          "keywords": ["usb", "usb port", "usb interface"]
+        },
+        {
+          "id": "INT-JTAG-001",
+          "name": "JTAG/Debug Interface",
+          "aliases": ["JTAG", "Debug Port", "SWD"],
+          "criticality": "Critical",
+          "safetyRelevant": true,
+          "keywords": ["jtag", "debug port", "swd", "debug interface"]
+        }
+      ]
+    },
+    "Vehicle_Function": {
+      "name": "Vehicle Function",
+      "description": "Vehicle capabilities and features",
+      "iso21434Reference": "Clause 5.4.5",
+      "assets": [
+        {
+          "id": "FUNC-ADAS-001",
+          "name": "Advanced Driver Assistance Systems",
+          "aliases": ["ADAS", "Driver Assistance", "Safety Systems"],
+          "criticality": "Critical",
+          "safetyRelevant": true,
+          "keywords": ["adas", "driver assistance", "collision avoidance", "lane keep"]
+        },
+        {
+          "id": "FUNC-KEYLESS-001",
+          "name": "Keyless Entry System",
+          "aliases": ["Keyless Entry", "PEPS", "Passive Entry"],
+          "criticality": "High",
+          "safetyRelevant": false,
+          "keywords": ["keyless entry", "peps", "passive entry", "key fob", "remote key"]
+        },
+        {
+          "id": "FUNC-PARK-001",
+          "name": "Automated Parking",
+          "aliases": ["Park Assist", "Auto Park", "Remote Parking"],
+          "criticality": "High",
+          "safetyRelevant": true,
+          "keywords": ["park assist", "automated parking", "auto park"]
+        }
+      ]
+    },
+    "Data_Asset": {
+      "name": "Data Asset",
+      "description": "Information stored or transmitted",
+      "iso21434Reference": "Clause 5.4.6",
+      "assets": [
+        {
+          "id": "DATA-PII-001",
+          "name": "Personal Identifiable Information",
+          "aliases": ["PII", "Personal Data", "User Data"],
+          "criticality": "High",
+          "safetyRelevant": false,
+          "keywords": ["personal data", "pii", "user information", "privacy"]
+        },
+        {
+          "id": "DATA-CRYPTO-001",
+          "name": "Cryptographic Keys",
+          "aliases": ["Keys", "Certificates", "Credentials"],
+          "criticality": "Critical",
+          "safetyRelevant": true,
+          "keywords": ["cryptographic keys", "certificates", "credentials", "secrets"]
+        },
+        {
+          "id": "DATA-FIRMWARE-001",
+          "name": "Firmware/Software",
+          "aliases": ["Firmware", "Software", "Code"],
+          "criticality": "Critical",
+          "safetyRelevant": true,
+          "keywords": ["firmware", "software", "code", "binary"]
+        }
+      ]
+    }
+  }
+}

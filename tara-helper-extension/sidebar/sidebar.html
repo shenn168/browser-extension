@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TARA Analysis Panel</title>
+  <link rel="stylesheet" href="sidebar.css">
+</head>
+<body>
+  <div class="sidebar-container">
+    <!-- Header -->
+    <header class="sidebar-header">
+      <div class="header-content">
+        <h1>🛡️ TARA Analysis Panel</h1>
+        <button id="closeSidebar" class="icon-btn" title="Close">✕</button>
+      </div>
+      <div class="header-info">
+        <span id="currentUrl" class="url-display">No page analyzed</span>
+        <span id="timestamp" class="timestamp"></span>
+      </div>
+    </header>
+
+    <!-- Tab Navigation -->
+    <nav class="tab-navigation">
+      <button class="tab-btn active" data-tab="assets">
+        <span class="tab-icon">📦</span>
+        Assets
+        <span class="badge" id="assetsBadge">0</span>
+      </button>
+      <button class="tab-btn" data-tab="threats">
+        <span class="tab-icon">⚠️</span>
+        Threats
+        <span class="badge" id="threatsBadge">0</span>
+      </button>
+      <button class="tab-btn" data-tab="paths">
+        <span class="tab-icon">🔗</span>
+        Attack Paths
+        <span class="badge" id="pathsBadge">0</span>
+      </button>
+      <button class="tab-btn" data-tab="feasibility">
+        <span class="tab-icon">📊</span>
+        Feasibility
+      </button>
+      <button class="tab-btn" data-tab="controls">
+        <span class="tab-icon">🛠️</span>
+        Controls
+        <span class="badge" id="controlsBadge">0</span>
+      </button>
+      <button class="tab-btn" data-tab="export">
+        <span class="tab-icon">💾</span>
+        Export
+      </button>
+    </nav>
+
+    <!-- Tab Content Area -->
+    <main class="tab-content-area">
+      
+      <!-- Assets Tab -->
+      <section id="assets-tab" class="tab-content active">
+        <div class="tab-header">
+          <h2>Identified Assets</h2>
+          <button class="refresh-btn" id="refreshAssets">🔄 Refresh</button>
+        </div>
+        
+        <div class="filter-section">
+          <input type="text" id="assetSearch" placeholder="Search assets..." class="search-input">
+          <select id="assetCategoryFilter" class="filter-select">
+            <option value="all">All Categories</option>
+            <option value="Hardware Component">Hardware Component</option>
+            <option value="Communication Channel">Communication Channel</option>
+            <option value="Vehicle Function">Vehicle Function</option>
+            <option value="External Connectivity">External Connectivity</option>
+            <option value="Interface">Interface</option>
+          </select>
+        </div>
+
+        <div id="assetsList" class="items-list">
+          <div class="empty-state">
+            <span class="empty-icon">📦</span>
+            <p>No assets identified yet</p>
+            <button class="analyze-page-btn">Analyze Current Page</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Threats Tab -->
+      <section id="threats-tab" class="tab-content">
+        <div class="tab-header">
+          <h2>Threat Scenarios</h2>
+          <button class="add-btn" id="addThreat">+ Add Custom Threat</button>
+        </div>
+
+        <div class="filter-section">
+          <input type="text" id="threatSearch" placeholder="Search threats..." class="search-input">
+          <select id="strideFilter" class="filter-select">
+            <option value="all">All STRIDE Categories</option>
+            <option value="Spoofing">Spoofing</option>
+            <option value="Tampering">Tampering</option>
+            <option value="Repudiation">Repudiation</option>
+            <option value="Information Disclosure">Information Disclosure</option>
+            <option value="Denial of Service">Denial of Service</option>
+            <option value="Elevation of Privilege">Elevation of Privilege</option>
+          </select>
+        </div>
+
+        <div id="threatsList" class="items-list">
+          <div class="empty-state">
+            <span class="empty-icon">⚠️</span>
+            <p>No threats identified yet</p>
+            <button class="analyze-page-btn">Analyze Current Page</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Attack Paths Tab -->
+      <section id="paths-tab" class="tab-content">
+        <div class="tab-header">
+          <h2>Attack Paths</h2>
+          <button class="add-btn" id="addPath">+ Add Custom Path</button>
+        </div>
+
+        <div id="pathsList" class="items-list">
+          <div class="empty-state">
+            <span class="empty-icon">🔗</span>
+            <p>No attack paths identified yet</p>
+            <button class="analyze-page-btn">Analyze Current Page</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Feasibility Tab -->
+      <section id="feasibility-tab" class="tab-content">
+        <div class="tab-header">
+          <h2>Attack Feasibility Calculator</h2>
+          <button class="help-btn" id="feasibilityHelp">❓ Help</button>
+        </div>
+
+        <div class="feasibility-calculator">
+          <div class="calculator-intro">
+            <p>Calculate attack feasibility based on ISO/SAE 21434 criteria. Each criterion is scored 0-4, with total feasibility ranging from 0-24.</p>
+          </div>
+
+          <form id="feasibilityForm">
+            <!-- Elapsed Time -->
+            <div class="criterion-group">
+              <label class="criterion-label">
+                <span class="criterion-name">Elapsed Time</span>
+                <span class="criterion-info" title="Time required to identify and exploit vulnerability">ℹ️</span>
+              </label>
+              <select name="elapsedTime" class="criterion-select" required>
+                <option value="">Select...</option>
+                <option value="0">≤ 1 day (0 points)</option>
+                <option value="1">≤ 1 week (1 point)</option>
+                <option value="2">≤ 1 month (2 points)</option>
+                <option value="3">≤ 3 months (3 points)</option>
+                <option value="4">> 3 months (4 points)</option>
+              </select>
+            </div>
+
+            <!-- Specialist Expertise -->
+            <div class="criterion-group">
+              <label class="criterion-label">
+                <span class="criterion-name">Specialist Expertise</span>
+                <span class="criterion-info" title="Required knowledge and skills">ℹ️</span>
+              </label>
+              <select name="expertise" class="criterion-select" required>
+                <option value="">Select...</option>
+                <option value="0">Layman (0 points)</option>
+                <option value="3">Proficient (3 points)</option>
+                <option value="6">Expert (6 points)</option>
+                <option value="8">Multiple Experts (8 points)</option>
+              </select>
+            </div>
+
+            <!-- Knowledge of Item -->
+            <div class="criterion-group">
+              <label class="criterion-label">
+                <span class="criterion-name">Knowledge of Item/System</span>
+                <span class="criterion-info" title="Information about target system">ℹ️</span>
+              </label>
+              <select name="knowledge" class="criterion-select" required>
+                <option value="">Select...</option>
+                <option value="0">Public (0 points)</option>
+                <option value="3">Restricted (3 points)</option>
+                <option value="7">Confidential (7 points)</option>
+                <option value="11">Strictly Confidential (11 points)</option>
+              </select>
+            </div>
+
+            <!-- Window of Opportunity -->
+            <div class="criterion-group">
+              <label class="criterion-label">
+                <span class="criterion-name">Window of Opportunity</span>
+                <span class="criterion-info" title="Access time/conditions required">ℹ️</span>
+              </label>
+              <select name="window" class="criterion-select" required>
+                <option value="">Select...</option>
+                <option value="0">Unlimited (0 points)</option>
+                <option value="1">Easy (1 point)</option>
+                <option value="3">Moderate (3 points)</option>
+                <option value="4">Difficult (4 points)</option>
+                <option value="6">None (6 points)</option>
+              </select>
+            </div>
+
+            <!-- Equipment -->
+            <div class="criterion-group">
+              <label class="criterion-label">
+                <span class="criterion-name">Equipment Required</span>
+                <span class="criterion-info" title="Tools and hardware needed">ℹ️</span>
+              </label>
+              <select name="equipment" class="criterion-select" required>
+                <option value="">Select...</option>
+                <option value="0">Standard (0 points)</option>
+                <option value="2">Specialized (2 points)</option>
+                <option value="5">Bespoke (5 points)</option>
+                <option value="7">Multiple Bespoke (7 points)</option>
+              </select>
+            </div>
+
+            <button type="submit" class="calculate-btn">Calculate Feasibility</button>
+          </form>
+
+          <div id="feasibilityResult" class="feasibility-result" style="display: none;">
+            <div class="result-header">
+              <h3>Feasibility Assessment</h3>
+            </div>
+            <div class="result-score">
+              <span class="score-label">Total Score:</span>
+              <span id="totalScore" class="score-value">0</span>
+              <span class="score-max">/ 24</span>
+            </div>
+            <div class="result-rating">
+              <span class="rating-label">Feasibility Rating:</span>
+              <span id="feasibilityRating" class="rating-badge">-</span>
+            </div>
+            <div class="result-explanation">
+              <h4>Rationale:</h4>
+              <div id="rationale" class="rationale-text"></div>
+            </div>
+            <div class="result-actions">
+              <button id="saveToScenario" class="action-btn">Save to Threat Scenario</button>
+              <button id="resetCalculator" class="action-btn secondary">Reset</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Controls Tab -->
+      <section id="controls-tab" class="tab-content">
+        <div class="tab-header">
+          <h2>Cybersecurity Controls</h2>
+          <button class="add-btn" id="addControl">+ Add Custom Control</button>
+        </div>
+
+        <div class="filter-section">
+          <input type="text" id="controlSearch" placeholder="Search controls..." class="search-input">
+          <select id="phaseFilter" class="filter-select">
+            <option value="all">All Phases</option>
+            <option value="Concept">Concept</option>
+            <option value="Development">Development</option>
+            <option value="Production">Production</option>
+            <option value="Operations">Operations</option>
+          </select>
+        </div>
+
+        <div id="controlsList" class="items-list">
+          <div class="empty-state">
+            <span class="empty-icon">🛠️</span>
+            <p>No controls suggested yet</p>
+            <button class="analyze-page-btn">Analyze Current Page</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Export Tab -->
+      <section id="export-tab" class="tab-content">
+        <div class="tab-header">
+          <h2>Export Analysis</h2>
+        </div>
+
+        <div class="export-options">
+          <div class="export-card">
+            <div class="export-icon">📄</div>
+            <h3>JSON Format</h3>
+            <p>Export complete analysis data in JSON format for tool integration</p>
+            <button class="export-btn" data-format="json">Export JSON</button>
+          </div>
+
+          <div class="export-card">
+            <div class="export-icon">📊</div>
+            <h3>CSV Format</h3>
+            <p>Export tabular data for Excel/spreadsheet analysis</p>
+            <button class="export-btn" data-format="csv">Export CSV</button>
+          </div>
+
+          <div class="export-card">
+            <div class="export-icon">📝</div>
+            <h3>PDF Report</h3>
+            <p>Generate comprehensive PDF report (Premium feature)</p>
+            <button class="export-btn premium" data-format="pdf" disabled>
+              <span class="premium-badge">Premium</span>
+              Export PDF
+            </button>
+          </div>
+
+          <div class="export-card">
+            <div class="export-icon">🔗</div>
+            <h3>API Integration</h3>
+            <p>Send to external TARA management tools (Premium feature)</p>
+            <button class="export-btn premium" data-format="api" disabled>
+              <span class="premium-badge">Premium</span>
+              Configure API
+            </button>
+          </div>
+        </div>
+
+        <div class="export-history">
+          <h3>Recent Exports</h3>
+          <div id="exportHistoryList" class="history-list">
+            <p class="empty-message">No exports yet</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="sidebar-footer">
+      <div class="footer-actions">
+        <button id="clearAnalysis" class="footer-btn">🗑️ Clear Analysis</button>
+        <button id="saveAnalysis" class="footer-btn primary">💾 Save Analysis</button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="sidebar.js"></script>
+</body>
+</html>
