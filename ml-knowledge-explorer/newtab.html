@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ML Knowledge Explorer</title>
+    <!--
+      Fonts loaded with onerror fallback for offline mode.
+      CSS also defines full system-font fallback stack.
+    -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      onerror="this.remove()"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="dark">
+
+    <!-- ── TOP BAR ── -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <span class="logo">🧠 ML Knowledge Explorer</span>
+        <span id="offlineBadge" class="badge badge-offline hidden">● Offline</span>
+        <span id="onlineBadge"  class="badge badge-online  hidden">● Online</span>
+      </div>
+      <div class="topbar-right">
+        <button id="btnQuiz"   class="btn btn-secondary">🎯 Quiz</button>
+        <button id="btnFlash"  class="btn btn-secondary">🃏 Flashcards</button>
+        <button id="btnUpdate" class="btn btn-primary">🔄 Check Updates</button>
+        <div class="export-wrapper">
+          <button id="btnExport" class="btn btn-secondary">⬇ Export ▾</button>
+          <div id="exportMenu" class="dropdown hidden">
+            <button id="exportJSON">📄 Export as JSON</button>
+            <button id="exportMD">📝 Export as Markdown</button>
+            <button id="exportPDF">🖨 Export as PDF</button>
+          </div>
+        </div>
+        <button id="themeToggle" class="btn btn-icon" title="Toggle Theme">🌙</button>
+      </div>
+    </header>
+
+    <!-- ── SEARCH & FILTER BAR ── -->
+    <div class="search-bar">
+      <div class="search-input-wrapper">
+        <span class="search-icon">🔍</span>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search ML types by name..."
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button id="clearSearch" class="clear-btn hidden" aria-label="Clear search">✕</button>
+      </div>
+      <div class="filter-chips" id="filterChips">
+        <button class="chip active" data-cat="all">All</button>
+      </div>
+    </div>
+
+    <!-- ── UPDATE NOTIFICATION BANNER ── -->
+    <div id="updateBanner" class="update-banner hidden">
+      <div class="update-content">
+        <span id="updateMsg">🆕 New ML types found!</span>
+        <div class="update-actions">
+          <button id="btnReviewUpdates" class="btn btn-primary btn-sm">Review &amp; Approve</button>
+          <button id="btnDismissUpdate" class="btn btn-secondary btn-sm">Dismiss</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── STATS BAR ── -->
+    <div class="stats-bar">
+      <span id="statsTotal">0 types</span>
+      <span class="stats-sep">•</span>
+      <span id="statsCategories">0 categories</span>
+      <span class="stats-sep">•</span>
+      <span id="statsFavorites">0 favorites</span>
+      <span class="stats-sep">•</span>
+      <span id="statsFiltered"></span>
+    </div>
+
+    <!-- ── MAIN CONTENT ── -->
+    <main id="mainContent">
+      <div id="accordionList" class="accordion-list"></div>
+      <div id="emptyState" class="empty-state hidden">
+        <div class="empty-icon">🔎</div>
+        <p>No ML types match your search.</p>
+        <button id="clearFilters" class="btn btn-primary btn-sm">Clear Filters</button>
+      </div>
+    </main>
+
+    <!-- ── QUIZ MODAL ── -->
+    <div id="quizModal" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal-box">
+        <div class="modal-header">
+          <h2>🎯 ML Quiz</h2>
+          <button class="modal-close" data-modal="quizModal" aria-label="Close">✕</button>
+        </div>
+        <div id="quizContent"></div>
+      </div>
+    </div>
+
+    <!-- ── FLASHCARD MODAL ── -->
+    <div id="flashModal" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal-box">
+        <div class="modal-header">
+          <h2>🃏 Flashcards</h2>
+          <button class="modal-close" data-modal="flashModal" aria-label="Close">✕</button>
+        </div>
+        <div id="flashContent"></div>
+      </div>
+    </div>
+
+    <!-- ── UPDATE REVIEW MODAL ── -->
+    <div id="updateModal" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal-box modal-wide">
+        <div class="modal-header">
+          <h2>🆕 Pending Updates</h2>
+          <button class="modal-close" data-modal="updateModal" aria-label="Close">✕</button>
+        </div>
+        <div id="updateContent"></div>
+      </div>
+    </div>
+
+    <!-- ── TOAST NOTIFICATION ── -->
+    <div id="toast" class="toast hidden"></div>
+
+    <!-- ── SCRIPTS ── -->
+    <script src="js/data.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/updater.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/exporter.js"></script>
+    <script src="js/newtab.js"></script>
+  </body>
+</html>
