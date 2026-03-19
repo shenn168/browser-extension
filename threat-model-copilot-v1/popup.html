@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Threat Modeling Copilot</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="header">
+        <div class="header-row">
+          <div class="logo-mark">TM</div>
+          <div>
+            <h1>Threat Modeling Copilot</h1>
+            <p>
+              Analyze product use cases against OWASP, MITRE, NIST, and UN R155 mappings.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <nav class="nav">
+        <button id="nav-intake" class="active">Intake</button>
+        <button id="nav-questions">Questions</button>
+        <button id="nav-report">Report</button>
+        <button id="nav-saved">Saved</button>
+      </nav>
+
+      <main>
+        <section id="view-intake" class="view active">
+          <div class="card">
+            <div class="section-title">
+              <div>
+                <h2>Product Intake</h2>
+                <p>Describe the product or feature for initial threat analysis.</p>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="sampleScenario">Load sample scenario</label>
+              <select id="sampleScenario">
+                <option value="">Select a sample</option>
+              </select>
+            </div>
+
+            <div class="grid grid-2">
+              <div class="field">
+                <label for="title">Product title</label>
+                <input id="title" type="text" />
+              </div>
+
+              <div class="field">
+                <label for="productType">Product type</label>
+                <input id="productType" type="text" />
+              </div>
+
+              <div class="field">
+                <label for="businessPurpose">Business purpose</label>
+                <textarea id="businessPurpose"></textarea>
+              </div>
+
+              <div class="field">
+                <label for="usersActors">Users / actors</label>
+                <textarea id="usersActors"></textarea>
+              </div>
+
+              <div class="field">
+                <label for="sensitiveAssets">Sensitive assets</label>
+                <textarea id="sensitiveAssets"></textarea>
+              </div>
+
+              <div class="field">
+                <label for="interfaces">Interfaces / entry points</label>
+                <textarea id="interfaces"></textarea>
+              </div>
+
+              <div class="field">
+                <label for="deployment">Deployment</label>
+                <input id="deployment" type="text" />
+              </div>
+
+              <div class="field">
+                <label for="aiUsage">AI usage</label>
+                <textarea id="aiUsage"></textarea>
+              </div>
+
+              <div class="field">
+                <label for="vehicleConnectivity">Vehicle connectivity</label>
+                <textarea id="vehicleConnectivity"></textarea>
+              </div>
+
+              <div class="field">
+                <label for="externalDependencies">External dependencies</label>
+                <textarea id="externalDependencies"></textarea>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="freeTextDescription">Free text description</label>
+              <textarea id="freeTextDescription" class="large"></textarea>
+            </div>
+
+            <div class="actions">
+              <button id="generateQuestionsBtn" class="primary">Generate Clarification Questions</button>
+              <button id="clearFormBtn">Clear</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="view-questions" class="view">
+          <div class="card">
+            <div class="section-title">
+              <div>
+                <h2>Clarification Questions</h2>
+                <p>Refine analysis quality by answering the generated questions.</p>
+              </div>
+            </div>
+
+            <div id="questionsContainer"></div>
+
+            <div class="actions">
+              <button id="backToIntakeBtn">Back</button>
+              <button id="generateReportBtn" class="primary">Generate Report</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="view-report" class="view">
+          <div class="card">
+            <div class="section-title">
+              <div>
+                <h2>Threat Analysis Report</h2>
+                <p>Report generated from the current assessment.</p>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button id="saveAssessmentBtn" class="primary">Save Assessment</button>
+              <button id="exportMarkdownBtn">Export Markdown</button>
+              <button id="exportJsonBtn">Export JSON</button>
+            </div>
+
+            <div id="reportContainer"></div>
+          </div>
+        </section>
+
+        <section id="view-saved" class="view">
+          <div class="card">
+            <div class="section-title">
+              <div>
+                <h2>Saved Assessments</h2>
+                <p>Stored locally in extension storage.</p>
+              </div>
+            </div>
+
+            <div id="savedContainer"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="data/frameworks.js"></script>
+    <script src="data/samples.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
