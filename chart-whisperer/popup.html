@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chart Whisperer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="cw-popup">
+
+    <!-- Header -->
+    <header class="cw-header">
+      <div class="cw-logo">
+        <span class="cw-logo-icon">🔍</span>
+        <div>
+          <h1>Chart Whisperer</h1>
+          <p class="cw-tagline">Instant chart insights</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="cw-main">
+
+      <!-- Quick Actions -->
+      <section class="cw-section">
+        <h2 class="cw-section-title">Quick Actions</h2>
+        <div class="cw-actions">
+          <button id="btn-select-area" class="cw-btn cw-btn-primary">
+            <span class="cw-btn-icon">📐</span>
+            <span>Select Chart Area</span>
+          </button>
+          <button id="btn-paste-image" class="cw-btn cw-btn-secondary">
+            <span class="cw-btn-icon">📋</span>
+            <span>Paste from Clipboard</span>
+          </button>
+        </div>
+        <p class="cw-hint">💡 Tip: Right-click any chart image for instant analysis</p>
+      </section>
+
+      <!-- Analysis Depth -->
+      <section class="cw-section">
+        <h2 class="cw-section-title">Analysis Depth</h2>
+        <div class="cw-depth-selector">
+          <button class="cw-depth-btn" data-depth="quick">
+            ⚡ Quick
+          </button>
+          <button class="cw-depth-btn active" data-depth="standard">
+            📊 Standard
+          </button>
+          <button class="cw-depth-btn" data-depth="detailed">
+            🔬 Detailed
+          </button>
+        </div>
+      </section>
+
+      <!-- Recent History -->
+      <section class="cw-section">
+        <h2 class="cw-section-title">
+          Recent Analyses
+          <button id="btn-clear-history" class="cw-link-btn">Clear</button>
+        </h2>
+        <div id="history-list" class="cw-history-list">
+          <p class="cw-empty-state">No analyses yet. Right-click a chart to get started!</p>
+        </div>
+      </section>
+
+      <!-- Settings -->
+      <section class="cw-section cw-settings-section">
+        <h2 class="cw-section-title">
+          Settings
+          <button id="btn-toggle-settings" class="cw-link-btn">
+            <span id="settings-toggle-icon">▼</span>
+          </button>
+        </h2>
+        <div id="settings-panel" class="cw-settings-panel" style="display: none;">
+          <div class="cw-form-group">
+            <label for="api-key">API Key</label>
+            <div class="cw-input-wrapper">
+              <input
+                type="password"
+                id="api-key"
+                placeholder="sk-..."
+                autocomplete="off"
+              >
+              <button id="btn-toggle-key" class="cw-eye-btn" title="Show/hide key">👁</button>
+            </div>
+            <small>Your key is stored locally and never shared.</small>
+          </div>
+
+          <div class="cw-form-group">
+            <label for="model-select">AI Model</label>
+            <select id="model-select">
+              <option value="gpt-4o">GPT-4o (Recommended)</option>
+              <option value="gpt-4o-mini">GPT-4o Mini (Faster)</option>
+              <option value="gpt-4-turbo">GPT-4 Turbo</option>
+            </select>
+          </div>
+
+          <div class="cw-form-group">
+            <label>
+              <input type="checkbox" id="save-history" checked>
+              Save analysis history
+            </label>
+          </div>
+
+          <button id="btn-save-settings" class="cw-btn cw-btn-small">
+            Save Settings
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="cw-footer">
+      <span>Chart Whisperer v1.0</span>
+    </footer>
+
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

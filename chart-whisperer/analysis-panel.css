@@ -1,0 +1,362 @@
+/* =============================================
+   Chart Whisperer — Analysis Panel Styles
+   ============================================= */
+
+:root {
+  --ap-bg: #0a0a14;
+  --ap-bg-card: #12121f;
+  --ap-bg-elevated: #1a1a2e;
+  --ap-text: #e8e8f0;
+  --ap-text-secondary: #9898b0;
+  --ap-text-muted: #5a5a72;
+  --ap-accent: #667eea;
+  --ap-accent-light: rgba(102, 126, 234, 0.15);
+  --ap-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --ap-border: rgba(255, 255, 255, 0.06);
+  --ap-success: #4ade80;
+  --ap-warning: #fbbf24;
+  --ap-danger: #f87171;
+  --ap-radius: 12px;
+  --ap-radius-sm: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--ap-bg);
+  color: var(--ap-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.ap-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Header ---- */
+.ap-header {
+  background: var(--ap-gradient);
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+.ap-header-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ap-header h1 {
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+}
+
+.ap-logo {
+  font-size: 22px;
+}
+
+.ap-header-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.ap-icon-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.ap-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ---- Chart Preview ---- */
+.ap-preview {
+  padding: 14px;
+  border-bottom: 1px solid var(--ap-border);
+}
+
+.ap-chart-container {
+  background: var(--ap-bg-card);
+  border: 1px solid var(--ap-border);
+  border-radius: var(--ap-radius);
+  overflow: hidden;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ap-chart-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 300px;
+  object-fit: contain;
+}
+
+.ap-placeholder {
+  color: var(--ap-text-muted);
+  font-size: 13px;
+  padding: 30px;
+}
+
+.ap-source {
+  font-size: 11px;
+  color: var(--ap-text-muted);
+  margin-top: 8px;
+  padding: 0 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---- Loading State ---- */
+.ap-loading {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.ap-spinner {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 16px;
+  border: 3px solid var(--ap-border);
+  border-top-color: var(--ap-accent);
+  border-radius: 50%;
+  animation: apSpin 0.8s linear infinite;
+}
+
+@keyframes apSpin {
+  to { transform: rotate(360deg); }
+}
+
+.ap-loading-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ap-text);
+  margin-bottom: 20px;
+}
+
+.ap-loading-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.ap-step {
+  font-size: 13px;
+  color: var(--ap-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.3s;
+}
+
+.ap-step.complete {
+  color: var(--ap-success);
+}
+
+.ap-step.active {
+  color: var(--ap-accent);
+  font-weight: 600;
+}
+
+/* ---- Error State ---- */
+.ap-error {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.ap-error-icon {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.ap-error p {
+  font-size: 14px;
+  color: var(--ap-danger);
+  margin-bottom: 16px;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ap-btn-retry {
+  background: var(--ap-gradient);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: var(--ap-radius-sm);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.ap-btn-retry:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* ---- Results ---- */
+.ap-results {
+  padding: 16px;
+  flex: 1;
+}
+
+.ap-results-content {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.ap-results-content h2 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--ap-border);
+  color: var(--ap-accent);
+}
+
+.ap-results-content h2:first-child {
+  margin-top: 0;
+}
+
+.ap-results-content p {
+  color: var(--ap-text);
+  margin-bottom: 10px;
+}
+
+.ap-results-content ul,
+.ap-results-content ol {
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.ap-results-content li {
+  margin-bottom: 4px;
+  color: var(--ap-text-secondary);
+}
+
+.ap-results-content strong {
+  color: var(--ap-text);
+}
+
+.ap-results-content code {
+  background: var(--ap-accent-light);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+/* ---- Empty State ---- */
+.ap-empty {
+  padding: 40px 20px;
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ap-empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  filter: grayscale(0.3);
+}
+
+.ap-empty h2 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.ap-empty p {
+  font-size: 13px;
+  color: var(--ap-text-secondary);
+  max-width: 280px;
+  margin-bottom: 24px;
+}
+
+.ap-instructions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-align: left;
+  width: 100%;
+  max-width: 280px;
+}
+
+.ap-instruction-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--ap-text-secondary);
+}
+
+.ap-num {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ap-accent-light);
+  color: var(--ap-accent);
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ---- Footer ---- */
+.ap-footer {
+  padding: 10px 16px;
+  text-align: center;
+  font-size: 10px;
+  color: var(--ap-text-muted);
+  border-top: 1px solid var(--ap-border);
+  margin-top: auto;
+}
+
+/* ---- Scrollbar Styling ---- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ap-text-muted);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ap-text-secondary);
+}

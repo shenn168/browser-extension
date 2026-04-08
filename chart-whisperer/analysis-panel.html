@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chart Whisperer — Analysis</title>
+  <link rel="stylesheet" href="analysis-panel.css">
+</head>
+<body>
+  <div class="ap-container">
+
+    <!-- Header -->
+    <header class="ap-header">
+      <div class="ap-header-inner">
+        <span class="ap-logo">🔍</span>
+        <h1>Chart Whisperer</h1>
+      </div>
+      <div class="ap-header-actions">
+        <button id="btn-copy" class="ap-icon-btn" title="Copy analysis">📋</button>
+        <button id="btn-reanalyze" class="ap-icon-btn" title="Re-analyze">🔄</button>
+      </div>
+    </header>
+
+    <!-- Chart Preview -->
+    <section class="ap-preview">
+      <div id="chart-preview-container" class="ap-chart-container">
+        <p class="ap-placeholder">Waiting for a chart to analyze...</p>
+      </div>
+      <div class="ap-source" id="source-info"></div>
+    </section>
+
+    <!-- Analysis Content -->
+    <section class="ap-analysis">
+
+      <!-- Loading State -->
+      <div id="loading-state" class="ap-loading" style="display: none;">
+        <div class="ap-spinner"></div>
+        <p class="ap-loading-text">Analyzing your chart...</p>
+        <div class="ap-loading-steps">
+          <div class="ap-step" id="step-capture">
+            <span class="ap-step-icon">⏳</span> Capturing image
+          </div>
+          <div class="ap-step" id="step-send">
+            <span class="ap-step-icon">⏳</span> Sending to AI
+          </div>
+          <div class="ap-step" id="step-analyze">
+            <span class="ap-step-icon">⏳</span> Generating insights
+          </div>
+        </div>
+      </div>
+
+      <!-- Error State -->
+      <div id="error-state" class="ap-error" style="display: none;">
+        <span class="ap-error-icon">⚠️</span>
+        <p id="error-message">An error occurred.</p>
+        <button id="btn-retry" class="ap-btn-retry">Try Again</button>
+      </div>
+
+      <!-- Results State -->
+      <div id="results-state" class="ap-results" style="display: none;">
+        <div id="analysis-content" class="ap-results-content">
+          <!-- AI analysis will be rendered here as formatted HTML -->
+        </div>
+      </div>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="ap-empty">
+        <div class="ap-empty-icon">📊</div>
+        <h2>Ready to Analyze</h2>
+        <p>Right-click any chart or graph on a webpage and select <strong>"Chart Whisperer — Analyze This Chart"</strong></p>
+        <div class="ap-instructions">
+          <div class="ap-instruction-step">
+            <span class="ap-num">1</span>
+            <span>Find a chart on any webpage</span>
+          </div>
+          <div class="ap-instruction-step">
+            <span class="ap-num">2</span>
+            <span>Right-click the chart image</span>
+          </div>
+          <div class="ap-instruction-step">
+            <span class="ap-num">3</span>
+            <span>Select "Chart Whisperer" from the menu</span>
+          </div>
+          <div class="ap-instruction-step">
+            <span class="ap-num">4</span>
+            <span>Get instant insights here!</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="ap-footer">
+      <span>Analysis powered by AI vision • Results may vary</span>
+    </footer>
+
+  </div>
+
+  <script src="utils/api.js"></script>
+  <script src="analysis-panel.js"></script>
+</body>
+</html>
