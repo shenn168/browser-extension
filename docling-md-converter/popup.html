@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Docling MD Converter</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <span class="logo">⚙️</span>
+        <div>
+          <h1 class="title">Docling MD Converter</h1>
+          <p class="subtitle">Local Offline Document → Markdown</p>
+        </div>
+      </div>
+      <button id="settingsBtn" class="icon-btn" title="Settings">⚙</button>
+    </header>
+
+    <!-- Server Status Bar -->
+    <div class="status-bar" id="statusBar">
+      <span class="status-dot" id="statusDot"></span>
+      <span id="statusText">Checking server...</span>
+      <button class="refresh-btn" id="refreshStatus" title="Refresh">↻</button>
+    </div>
+
+    <!-- Settings Panel (hidden by default) -->
+    <div class="settings-panel hidden" id="settingsPanel">
+      <label class="settings-label">Docling Server URL</label>
+      <div class="settings-row">
+        <input
+          type="text"
+          id="serverUrl"
+          class="settings-input"
+          placeholder="http://localhost:5001"
+        />
+        <button id="saveSettings" class="btn btn-small">Save</button>
+      </div>
+      <p class="settings-hint">
+        Start your local Docling server before converting.<br/>
+        Default: <code>http://localhost:5001</code>
+      </p>
+    </div>
+
+    <!-- Drop Zone -->
+    <div class="drop-zone" id="dropZone">
+      <div class="drop-icon">📄</div>
+      <p class="drop-title">Drop file here</p>
+      <p class="drop-sub">or</p>
+      <label class="btn btn-outline" for="fileInput">Browse File</label>
+      <input
+        type="file"
+        id="fileInput"
+        class="hidden"
+        accept=".pdf,.docx,.doc,.pptx,.ppt,.xlsx,.xls,.html,.htm,.png,.jpg,.jpeg,.tiff,.tif,.bmp,.gif,.webp,.csv,.md,.asciidoc,.adoc"
+      />
+      <p class="supported-types">
+        PDF · DOCX · PPTX · XLSX · HTML · PNG · JPG · TIFF · BMP · GIF · WEBP · CSV · MD · ASCIIDOC
+      </p>
+    </div>
+
+    <!-- Selected File Info -->
+    <div class="file-info hidden" id="fileInfo">
+      <div class="file-info-inner">
+        <span class="file-icon" id="fileIcon">📄</span>
+        <div class="file-details">
+          <span class="file-name" id="fileName">file.pdf</span>
+          <span class="file-size" id="fileSize">0 KB</span>
+        </div>
+        <button class="clear-btn" id="clearFile" title="Remove">✕</button>
+      </div>
+    </div>
+
+    <!-- Convert Button -->
+    <button class="btn btn-primary" id="convertBtn" disabled>
+      Convert to Markdown
+    </button>
+
+    <!-- Progress Section -->
+    <div class="progress-section hidden" id="progressSection">
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progressFill"></div>
+      </div>
+      <p class="progress-label" id="progressLabel">Sending to Docling...</p>
+    </div>
+
+    <!-- Result Section -->
+    <div class="result-section hidden" id="resultSection">
+      <div class="result-header">
+        <span class="result-title">✅ Conversion Complete</span>
+        <span class="result-meta" id="resultMeta"></span>
+      </div>
+      <div class="preview-box" id="previewBox"></div>
+      <div class="result-actions">
+        <button class="btn btn-primary" id="downloadBtn">⬇ Download .md</button>
+        <button class="btn btn-outline" id="convertAnother">Convert Another</button>
+      </div>
+    </div>
+
+    <!-- Error Section -->
+    <div class="error-section hidden" id="errorSection">
+      <div class="error-box">
+        <span class="error-icon">⚠️</span>
+        <div>
+          <p class="error-title">Conversion Failed</p>
+          <p class="error-msg" id="errorMsg"></p>
+        </div>
+      </div>
+      <button class="btn btn-outline" id="retryBtn">Try Again</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      Powered by <a href="https://github.com/docling-project/docling" target="_blank">Docling</a>
+    </footer>
+
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
