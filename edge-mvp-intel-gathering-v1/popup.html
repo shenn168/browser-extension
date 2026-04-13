@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Passive AI Assistant</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="popup-container">
+
+    <!-- Header -->
+    <header class="popup-header">
+      <h1>Passive AI</h1>
+      <span id="modeBadge" class="badge badge-mock">Mock</span>
+    </header>
+
+    <!-- Page context -->
+    <div id="pageContext" class="page-context">
+      <span id="pageTitle" class="page-title">Loading page info…</span>
+    </div>
+
+    <!-- Action buttons -->
+    <div class="actions">
+      <button id="btnSummarize" class="action-btn primary">Summarize Page</button>
+      <button id="btnExplain" class="action-btn secondary">Explain Selection</button>
+      <button id="btnExtract" class="action-btn secondary">Extract Key Info</button>
+    </div>
+
+    <!-- Status bar -->
+    <div id="statusBar" class="status-bar status-idle">Ready</div>
+
+    <!-- Result panel -->
+    <div id="resultPanel" class="result-panel hidden">
+      <div id="resultContent" class="result-content"></div>
+    </div>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+      <button id="btnCopy" class="tool-btn" title="Copy result">📋 Copy</button>
+      <button id="btnClear" class="tool-btn" title="Clear result">🗑️ Clear</button>
+      <button id="btnSettings" class="tool-btn" title="Settings">⚙️ Settings</button>
+    </div>
+
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

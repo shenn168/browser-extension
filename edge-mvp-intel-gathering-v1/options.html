@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Passive AI — Settings</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <div class="options-container">
+    <h1>Passive AI Settings</h1>
+
+    <!-- Mock Mode Toggle -->
+    <div class="field-group">
+      <label class="toggle-label">
+        <input type="checkbox" id="mockModeToggle" checked />
+        <span class="toggle-text">Mock Mode (no external API calls)</span>
+      </label>
+      <p class="field-hint">When enabled, the extension uses built-in heuristic responses for testing.</p>
+    </div>
+
+    <hr />
+
+    <!-- API Endpoint -->
+    <div class="field-group">
+      <label for="apiEndpoint">API Endpoint</label>
+      <input type="url" id="apiEndpoint" placeholder="https://your-api-endpoint.com/analyze" />
+      <p class="field-hint">Full URL of the AI backend. Required when Mock Mode is off.</p>
+    </div>
+
+    <!-- API Key -->
+    <div class="field-group">
+      <label for="apiKey">API Key</label>
+      <input type="password" id="apiKey" placeholder="sk-…" />
+      <p class="field-hint">Sent as a Bearer token in the Authorization header.</p>
+    </div>
+
+    <!-- Save -->
+    <div class="actions">
+      <button id="btnSave" class="btn-save">Save Settings</button>
+      <span id="statusMessage" class="status-message"></span>
+    </div>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>

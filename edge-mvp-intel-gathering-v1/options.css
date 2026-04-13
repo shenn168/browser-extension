@@ -1,0 +1,131 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9fafb;
+  color: #1a1a1a;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.options-container {
+  max-width: 520px;
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  padding: 28px 32px;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #0f172a;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 18px 0;
+}
+
+.field-group {
+  margin-bottom: 16px;
+}
+
+.field-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #334155;
+}
+
+.field-group input[type="url"],
+.field-group input[type="password"] {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #1e293b;
+  background: #f8fafc;
+  transition: border-color 0.15s;
+}
+
+.field-group input[type="url"]:focus,
+.field-group input[type="password"]:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+.field-hint {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+/* Toggle */
+.toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.toggle-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #2563eb;
+}
+
+.toggle-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.btn-save {
+  padding: 9px 22px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-save:hover {
+  background: #1d4ed8;
+}
+
+.status-message {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-message.success {
+  color: #059669;
+}
+
+.status-message.error {
+  color: #dc2626;
+}
