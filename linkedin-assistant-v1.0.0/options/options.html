@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="options.css">
+  <title>LinkedLens — Settings</title>
+</head>
+<body>
+  <div class="ll-options">
+    <!-- Header -->
+    <div class="ll-opt-header">
+      <div class="ll-opt-logo">
+        <span>🔍</span>
+        <h1>LinkedLens Settings</h1>
+      </div>
+      <span class="ll-opt-version">v1.0.0</span>
+    </div>
+
+    <!-- Main Content -->
+    <div class="ll-opt-content">
+
+      <!-- Sentiment Analysis -->
+      <section class="ll-opt-section">
+        <div class="ll-opt-section-header">
+          <h2>🧠 Sentiment Analysis</h2>
+          <p>Control how posts are analyzed in your feed</p>
+        </div>
+        <div class="ll-opt-row">
+          <div class="ll-opt-row-info">
+            <label>Enable Sentiment Badges</label>
+            <span class="ll-opt-desc">Show sentiment analysis on each feed post</span>
+          </div>
+          <label class="ll-toggle">
+            <input type="checkbox" id="opt-sentiment" checked>
+            <span class="ll-toggle-slider"></span>
+          </label>
+        </div>
+        <div class="ll-opt-row">
+          <div class="ll-opt-row-info">
+            <label>Badge Style</label>
+            <span class="ll-opt-desc">How sentiment information appears on posts</span>
+          </div>
+          <select id="opt-badge-style" class="ll-opt-select">
+            <option value="pill">Pill Badge</option>
+            <option value="border">Colored Border</option>
+            <option value="minimal">Minimal Dot</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Keyboard Shortcuts -->
+      <section class="ll-opt-section">
+        <div class="ll-opt-section-header">
+          <h2>⌨️ Keyboard Shortcuts</h2>
+          <p>Vim-inspired navigation and quick actions</p>
+        </div>
+        <div class="ll-opt-row">
+          <div class="ll-opt-row-info">
+            <label>Enable Keyboard Shortcuts</label>
+            <span class="ll-opt-desc">Navigate feed, like, comment, and save with keyboard</span>
+          </div>
+          <label class="ll-toggle">
+            <input type="checkbox" id="opt-shortcuts" checked>
+            <span class="ll-toggle-slider"></span>
+          </label>
+        </div>
+        <div class="ll-opt-shortcuts-ref">
+          <h3>Shortcut Reference</h3>
+          <div class="ll-opt-keys-grid">
+            <div><kbd>J</kbd> / <kbd>K</kbd> — Navigate posts</div>
+            <div><kbd>L</kbd> — Like current post</div>
+            <div><kbd>C</kbd> — Open comment box</div>
+            <div><kbd>S</kbd> — Save to library</div>
+            <div><kbd>/</kbd> — Focus search bar</div>
+            <div><kbd>?</kbd> — Show shortcut help</div>
+            <div><kbd>G</kbd> → <kbd>H</kbd> — Go to Home</div>
+            <div><kbd>G</kbd> → <kbd>M</kbd> — Go to Messages</div>
+            <div><kbd>G</kbd> → <kbd>N</kbd> — Go to Notifications</div>
+            <div><kbd>G</kbd> → <kbd>J</kbd> — Go to Jobs</div>
+            <div><kbd>G</kbd> → <kbd>P</kbd> — Go to My Profile</div>
+            <div><kbd>Esc</kbd> — Close panels</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Post Library -->
+      <section class="ll-opt-section">
+        <div class="ll-opt-section-header">
+          <h2>📚 Post Library</h2>
+          <p>Settings for saved posts and bookmarks</p>
+        </div>
+        <div class="ll-opt-row">
+          <div class="ll-opt-row-info">
+            <label>Save Full Text Snapshot</label>
+            <span class="ll-opt-desc">Store complete post content (uses more storage)</span>
+          </div>
+          <label class="ll-toggle">
+            <input type="checkbox" id="opt-snapshot" checked>
+            <span class="ll-toggle-slider"></span>
+          </label>
+        </div>
+        <div class="ll-opt-row">
+          <div class="ll-opt-row-info">
+            <label>Library Capacity</label>
+            <span class="ll-opt-desc">Maximum number of saved posts</span>
+          </div>
+          <select id="opt-capacity" class="ll-opt-select">
+            <option value="100">100 posts</option>
+            <option value="250">250 posts</option>
+            <option value="500" selected>500 posts</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Time Tracking -->
+      <section class="ll-opt-section">
+        <div class="ll-opt-section-header">
+          <h2>⏱️ Time Tracking & Nudges</h2>
+          <p>Manage your LinkedIn screen time</p>
+        </div>
+        <div class="ll-opt-row">
+          <div class="ll-opt-row-info">
+            <label>Enable Nudge Reminders</label>
+            <span class="ll-opt-desc">Get reminded to take breaks</span>
+          </div>
+          <label class="ll-toggle">
+            <input type="checkbox" id="opt-nudge" checked>
+            <span class="ll-toggle-slider"></span>
+          </label>
+        </div>
+        <div class="ll-opt-row">
+          <div class="ll-opt-row-info">
+            <label>Nudge After</label>
+            <span class="ll-opt-desc">Time before first break reminder</span>
+          </div>
+          <select id="opt-nudge-time" class="ll-opt-select">
+            <option value="15">15 minutes</option>
+            <option value="30">30 minutes</option>
+            <option value="45" selected>45 minutes</option>
+            <option value="60">1 hour</option>
+            <option value="90">1.5 hours</option>
+            <option value="120">2 hours</option>
+          </select>
+        </div>
+        <div class="ll-opt-row">
+          <div class="ll-opt-row-info">
+            <label>Nudge Style</label>
+            <span class="ll-opt-desc">How the reminder appears</span>
+          </div>
+          <select id="opt-nudge-type" class="ll-opt-select">
+            <option value="banner" selected>Banner (top of feed)</option>
+            <option value="notification">Browser Notification</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Data Management -->
+      <section class="ll-opt-section">
+        <div class="ll-opt-section-header">
+          <h2>🗂️ Data Management</h2>
+          <p>Export or clear your local data</p>
+        </div>
+        <div class="ll-opt-row">
+          <div class="ll-opt-row-info">
+            <label>Storage Used</label>
+            <span class="ll-opt-desc" id="opt-storage-info">Calculating...</span>
+          </div>
+          <span class="ll-opt-storage-bar">
+            <span class="ll-opt-storage-fill" id="opt-storage-fill" style="width:0%"></span>
+          </span>
+        </div>
+        <div class="ll-opt-actions">
+          <button class="ll-opt-btn ll-opt-btn-primary" id="btn-export">📤 Export Library (JSON)</button>
+          <button class="ll-opt-btn ll-opt-btn-warning" id="btn-clear-library">🗑️ Clear Library</button>
+          <button class="ll-opt-btn ll-opt-btn-warning" id="btn-clear-tracker">🗑️ Reset Time Data</button>
+          <button class="ll-opt-btn ll-opt-btn-danger" id="btn-clear-all">⚠️ Reset All Data</button>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section class="ll-opt-section ll-opt-about">
+        <div class="ll-opt-about-inner">
+          <span class="ll-opt-about-logo">🔍</span>
+          <strong>LinkedLens v1.0.0</strong>
+          <p>Your intelligent LinkedIn companion. All data stays local on your device — zero network calls, zero tracking.</p>
+          <p class="ll-opt-about-privacy">🛡️ Privacy-first by design</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Save Banner -->
+    <div class="ll-opt-save-banner ll-hidden" id="save-banner">
+      <span>Settings saved ✓</span>
+    </div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

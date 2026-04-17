@@ -1,0 +1,396 @@
+/*  ================================================
+    LinkedLens — Content Styles
+    Injected into linkedin.com pages
+    ================================================ */
+
+/* ── Sentiment Badge ── */
+.ll-sentiment-badge {
+  padding: 6px 0;
+  margin: 4px 0 8px 0;
+  user-select: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.ll-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  transition: box-shadow 0.2s;
+}
+
+.ll-badge-pill:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.ll-badge-emoji {
+  font-size: 10px;
+}
+
+.ll-badge-label {
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.ll-badge-divider {
+  opacity: 0.3;
+  font-weight: 300;
+}
+
+.ll-badge-score,
+.ll-badge-read,
+.ll-badge-level {
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+.ll-save-btn,
+.ll-detail-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  transition: background 0.15s, transform 0.15s;
+  line-height: 1;
+}
+
+.ll-save-btn:hover,
+.ll-detail-btn:hover {
+  background: rgba(0, 0, 0, 0.08);
+  transform: scale(1.15);
+}
+
+/* ── Post Focus (keyboard nav highlight) ── */
+.ll-post-focus {
+  outline: 2px solid #0a66c2 !important;
+  outline-offset: 2px;
+  border-radius: 8px;
+  transition: outline-color 0.3s;
+}
+
+/* ── Detail Panel ── */
+.ll-detail-panel {
+  margin: 8px 0 12px 0;
+  animation: ll-slide-down 0.25s ease-out;
+}
+
+@keyframes ll-slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ll-detail-inner {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.ll-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.ll-detail-header h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #191919;
+}
+
+.ll-detail-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: #666;
+  transition: background 0.15s;
+}
+
+.ll-detail-close:hover {
+  background: #f0f0f0;
+}
+
+.ll-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.ll-detail-card {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+}
+
+.ll-detail-card-title {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #666;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.ll-detail-card-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: #191919;
+  margin-bottom: 2px;
+}
+
+.ll-detail-card-value.ll-sentiment-positive { color: #2e7d32; }
+.ll-detail-card-value.ll-sentiment-neutral { color: #f57f17; }
+.ll-detail-card-value.ll-sentiment-negative { color: #c62828; }
+
+.ll-detail-card-sub {
+  font-size: 11px;
+  color: #888;
+}
+
+.ll-detail-words {
+  margin-bottom: 10px;
+}
+
+.ll-word-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.ll-word-chip {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.ll-word-pos {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.ll-word-neg {
+  background: #fce4ec;
+  color: #c62828;
+}
+
+.ll-word-neu {
+  background: #fff8e1;
+  color: #f57f17;
+}
+
+.ll-detail-content-preview {
+  border-top: 1px solid #eee;
+  padding-top: 8px;
+  font-size: 12px;
+  color: #555;
+}
+
+/* ── Toast ── */
+.ll-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: #191919;
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 99999;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.3s, transform 0.3s;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.ll-toast-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Nudge Banner ── */
+.ll-nudge-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99998;
+  animation: ll-nudge-enter 0.4s ease-out;
+}
+
+@keyframes ll-nudge-enter {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+.ll-nudge-banner.ll-nudge-hide {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in;
+}
+
+.ll-nudge-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #ff9800, #f57c00);
+  color: #fff;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ll-nudge-icon {
+  font-size: 20px;
+}
+
+.ll-nudge-text {
+  flex: 1;
+}
+
+.ll-nudge-dismiss,
+.ll-nudge-snooze {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.ll-nudge-dismiss:hover,
+.ll-nudge-snooze:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* ── Shortcut Help Panel ── */
+.ll-shortcut-help {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99997;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: ll-fade-in 0.2s;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.ll-shortcut-help.ll-hidden {
+  display: none;
+}
+
+@keyframes ll-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.ll-help-inner {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px 32px;
+  max-width: 560px;
+  width: 90%;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.2);
+}
+
+.ll-help-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.ll-help-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #191919;
+}
+
+.ll-help-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  color: #666;
+}
+
+.ll-help-close:hover {
+  background: #f0f0f0;
+}
+
+.ll-help-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.ll-help-group h4 {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #0a66c2;
+  letter-spacing: 0.5px;
+  margin: 0 0 10px 0;
+}
+
+.ll-help-row {
+  font-size: 13px;
+  color: #333;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ll-help-row kbd {
+  display: inline-block;
+  background: #f0f0f0;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 11px;
+  font-family: 'SF Mono', 'Consolas', monospace;
+  font-weight: 600;
+  color: #333;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* ── Utility ── */
+.ll-hidden {
+  display: none !important;
+}
