@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="popup.css">
+  <title>LinkedLens</title>
+</head>
+<body>
+  <div class="ll-popup">
+    <!-- Header -->
+    <div class="ll-popup-header">
+      <div class="ll-logo">
+        <span class="ll-logo-icon">🔍</span>
+        <span class="ll-logo-text">LinkedLens</span>
+      </div>
+      <span class="ll-version">v1.0.0</span>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="ll-stats-grid">
+      <div class="ll-stat-card">
+        <div class="ll-stat-value" id="stat-analyzed">0</div>
+        <div class="ll-stat-label">Posts Analyzed</div>
+      </div>
+      <div class="ll-stat-card">
+        <div class="ll-stat-value" id="stat-saved">0</div>
+        <div class="ll-stat-label">Posts Saved</div>
+      </div>
+      <div class="ll-stat-card">
+        <div class="ll-stat-value" id="stat-time">0m</div>
+        <div class="ll-stat-label">Today</div>
+      </div>
+    </div>
+
+    <!-- Session Timer -->
+    <div class="ll-section">
+      <div class="ll-section-header">
+        <span>⏱️ Current Session</span>
+      </div>
+      <div class="ll-session-display">
+        <div class="ll-timer" id="session-timer">00:00:00</div>
+        <div class="ll-session-meta" id="session-meta">No active session</div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="ll-section">
+      <div class="ll-section-header">
+        <span>⚡ Quick Actions</span>
+      </div>
+      <div class="ll-actions">
+        <button class="ll-action-btn" id="btn-sidepanel">
+          📚 Open Library
+        </button>
+        <button class="ll-action-btn" id="btn-shortcuts">
+          ⌨️ Shortcuts: <span id="shortcuts-status">ON</span>
+        </button>
+        <button class="ll-action-btn" id="btn-sentiment">
+          🧠 Sentiment: <span id="sentiment-status">ON</span>
+        </button>
+        <button class="ll-action-btn" id="btn-options">
+          ⚙️ Settings
+        </button>
+      </div>
+    </div>
+
+    <!-- Weekly Summary -->
+    <div class="ll-section">
+      <div class="ll-section-header">
+        <span>📊 This Week</span>
+      </div>
+      <div class="ll-weekly-chart" id="weekly-chart"></div>
+    </div>
+
+    <!-- Footer -->
+    <div class="ll-popup-footer">
+      <span>Press <kbd>?</kbd> on LinkedIn for shortcuts</span>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

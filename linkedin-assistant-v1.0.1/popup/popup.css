@@ -1,0 +1,233 @@
+/*  ================================================
+    LinkedLens — Popup Styles
+    ================================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 340px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f8f9fa;
+  color: #191919;
+}
+
+/* ── Header ── */
+.ll-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 18px;
+  background: linear-gradient(135deg, #0a66c2, #004182);
+  color: #fff;
+}
+
+.ll-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ll-logo-icon {
+  font-size: 22px;
+}
+
+.ll-logo-text {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.ll-version {
+  font-size: 10px;
+  opacity: 0.6;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+/* ── Stats Grid ── */
+.ll-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 12px 14px;
+}
+
+.ll-stat-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 10px 8px;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.ll-stat-value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0a66c2;
+}
+
+.ll-stat-label {
+  font-size: 10px;
+  color: #666;
+  margin-top: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* ── Sections ── */
+.ll-section {
+  margin: 0 14px 10px 14px;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.ll-section-header {
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #555;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* ── Session Timer ── */
+.ll-session-display {
+  padding: 14px;
+  text-align: center;
+}
+
+.ll-timer {
+  font-size: 32px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: #999;
+  letter-spacing: 1px;
+}
+
+.ll-timer-active {
+  color: #0a66c2;
+}
+
+.ll-session-meta {
+  font-size: 11px;
+  color: #888;
+  margin-top: 4px;
+}
+
+/* ── Actions ── */
+.ll-actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.ll-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 11px 14px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #f5f5f5;
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s;
+  font-family: inherit;
+}
+
+.ll-action-btn:last-child {
+  border-bottom: none;
+}
+
+.ll-action-btn:hover {
+  background: #f5f8ff;
+}
+
+.ll-on {
+  color: #2e7d32;
+  font-weight: 700;
+}
+
+.ll-off {
+  color: #c62828;
+  font-weight: 700;
+}
+
+/* ── Weekly Chart ── */
+.ll-weekly-chart {
+  padding: 10px 14px 14px;
+}
+
+.ll-chart-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.ll-chart-label {
+  width: 30px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #888;
+  text-align: right;
+}
+
+.ll-chart-today {
+  color: #0a66c2;
+}
+
+.ll-chart-bar-bg {
+  flex: 1;
+  height: 10px;
+  background: #f0f0f0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.ll-chart-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #0a66c2, #0d8de8);
+  border-radius: 5px;
+  transition: width 0.4s ease;
+}
+
+.ll-chart-value {
+  width: 28px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #888;
+}
+
+.ll-chart-empty {
+  text-align: center;
+  font-size: 11px;
+  color: #aaa;
+  padding: 12px 0;
+}
+
+/* ── Footer ── */
+.ll-popup-footer {
+  padding: 10px 14px;
+  text-align: center;
+  font-size: 10px;
+  color: #aaa;
+}
+
+.ll-popup-footer kbd {
+  background: #eee;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 1px 4px;
+  font-size: 10px;
+  font-family: 'SF Mono', 'Consolas', monospace;
+}
